@@ -1,0 +1,88 @@
+.invoice-paper {
+  position: relative;
+  overflow: hidden;
+}
+
+.invoice-paper::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 52%;
+  width: min(62%, 520px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  opacity: 0.045;
+  filter: grayscale(1);
+  background: url("/logo.png") center / contain no-repeat;
+  pointer-events: none;
+}
+
+.invoice-paper > * {
+  position: relative;
+  z-index: 1;
+}
+
+.invoice-header-logo {
+  width: 112px;
+  height: 112px;
+  background: url("/logo.png") center / contain no-repeat;
+}
+
+.invoice-document-totals .total-row {
+  color: #3c3c38;
+  border-bottom-color: #d8d5cc;
+  font-weight: 600;
+}
+
+.invoice-document-totals .total-row strong {
+  color: #151513;
+  font-weight: 800;
+}
+
+.invoice-document-totals .total-grand {
+  margin-top: 8px;
+  padding: 14px 15px;
+  border: 1px solid #d9c99f;
+  border-radius: 8px;
+  background: #f3ecda;
+}
+
+.invoice-document-totals .total-grand span {
+  color: #151513;
+}
+
+.invoice-document-totals .total-grand strong {
+  color: #765114;
+}
+
+.total-words {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border-left: 3px solid #9b7023;
+  background: #fbfaf6;
+  color: #22221f;
+  font-size: 11.5px;
+  font-weight: 650;
+  line-height: 1.55;
+}
+
+.total-words span {
+  display: block;
+  margin-bottom: 3px;
+  color: #765114;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+@media print {
+  .invoice-paper::before { opacity: 0.055; }
+}
+
+@media (max-width: 800px) {
+  .invoice-legal-footer {
+    margin: 32px -22px -22px !important;
+    padding: 16px 22px !important;
+  }
+}

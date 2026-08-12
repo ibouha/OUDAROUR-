@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1786392240391,
+      "tag": "0000_special_may_parker",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1786490055509,
+      "tag": "0001_acoustic_thundra",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1786491175714,
+      "tag": "0002_useful_phil_sheldon",
+      "breakpoints": true
+    }
+  ]
+}
