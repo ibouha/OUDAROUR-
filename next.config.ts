@@ -1,8 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Keep the live development preview from writing into production build output.
-  distDir: process.env.NODE_ENV === "development" ? ".next" : ".next-production",
+  // Use Next.js' standard `.next` output so hosting platforms can detect it.
 };
 
 export default nextConfig;
