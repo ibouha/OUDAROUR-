@@ -18,6 +18,7 @@
 /.next/
 /.next-production/
 /.next-incomplete/
+/.next-validation/
 /.next-dev-collision*/
 /.vinext/
 /out/

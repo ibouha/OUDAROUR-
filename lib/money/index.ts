@@ -5,7 +5,7 @@ Decimal.set({ precision: 24, rounding: Decimal.ROUND_HALF_UP });
 export type CalculableItem = {
   quantity: string | number;
   unitPriceHt: string | number;
-  discountRate: string | number;
+  discountRate?: string | number;
   vatRate: string | number;
 };
 

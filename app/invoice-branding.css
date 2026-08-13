@@ -14,7 +14,7 @@
   transform: translate(-50%, -50%);
   opacity: 0.045;
   filter: grayscale(1);
-  background: url("/logo.png") center / contain no-repeat;
+  background: url("/logooud1.png") center / contain no-repeat;
   pointer-events: none;
 }
 
@@ -24,9 +24,11 @@
 }
 
 .invoice-header-logo {
-  width: 112px;
-  height: 112px;
-  background: url("/logo.png") center / contain no-repeat;
+  display: block;
+  width: 240px;
+  height: 144px;
+  object-fit: contain;
+  image-rendering: auto;
 }
 
 .invoice-document-totals .total-row {

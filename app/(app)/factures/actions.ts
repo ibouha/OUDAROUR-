@@ -1,7 +1,7 @@
 "use server";
 import { revalidatePath } from "next/cache";
 import { auth } from "@/auth";
-import { createInvoice, duplicateInvoice, updateInvoice, updateInvoiceStatus } from "@/lib/db/queries/invoices";
+import { createInvoice, deleteInvoice, duplicateInvoice, updateInvoice, updateInvoiceStatus } from "@/lib/db/queries/invoices";
 import { invoiceSchema } from "@/lib/validation/invoice";
 import { INVOICE_STATUSES, type InvoiceStatus } from "@/lib/constants";
 import { safeMessage } from "@/lib/utils";
@@ -15,4 +15,6 @@ export async function saveInvoiceAction(id:string|null,input:unknown):Promise<In
 export async function duplicateInvoiceAction(id:string):Promise<InvoiceResult>{const session=await auth();if(!session?.user)return{success:false,message:"Votre session a expiré."};try{const copy=await duplicateInvoice(id,session.user.id);revalidatePath("/factures");return{success:true,message:"Facture dupliquée avec succès.",id:copy.id}}catch(error){return{success:false,message:safeMessage(error)}}
 }
 export async function changeInvoiceStatusAction(id:string,status:string):Promise<InvoiceResult>{const session=await auth();if(!session?.user)return{success:false,message:"Votre session a expiré."};if(!(status in INVOICE_STATUSES))return{success:false,message:"Statut invalide."};try{await updateInvoiceStatus(id,status as InvoiceStatus);revalidatePath(`/factures/${id}`);revalidatePath("/factures");return{success:true,message:status==="PAID"?"Facture marquée comme payée.":"Statut mis à jour."}}catch(error){return{success:false,message:safeMessage(error)}}
+}
+export async function deleteInvoiceAction(id:string):Promise<InvoiceResult>{const session=await auth();if(!session?.user)return{success:false,message:"Votre session a expiré."};try{await deleteInvoice(id);revalidatePath("/factures");return{success:true,message:"Facture supprimée."}}catch(error){return{success:false,message:safeMessage(error,"Impossible de supprimer la facture.")}}
 }

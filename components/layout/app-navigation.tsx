@@ -1,17 +1,19 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FileClock, FilePlus2, LogOut, Menu, Package, Settings, X } from "lucide-react";
+import { ClipboardList, FileClock, FilePlus2, LogOut, Menu, Package, Settings, UsersRound, X } from "lucide-react";
 import { useState } from "react";
 import { logoutAction } from "./actions";
 import { Button } from "@/components/ui/button";
-import logo from "@/public/logo.png";
+import logo from "@/public/logooud1.png";
 import Image from "next/image";
 
 const links = [
   { href:"/factures/nouvelle", label:"Nouvelle facture", icon:FilePlus2 },
   { href:"/produits", label:"Produits", icon:Package },
+  { href:"/clients", label:"Clients", icon:UsersRound },
   { href:"/factures", label:"Factures", icon:FileClock },
+  { href:"/bons-livraison", label:"Bons de livraison", icon:ClipboardList },
   { href:"/parametres", label:"Paramètres", icon:Settings },
 ];
 
